@@ -16,6 +16,7 @@ export function InterviewList() {
   const fetchInterviews = async () => {
     try {
       const response = await axios.get('https://resume-review-backend.onrender.com/api/students');
+      console.log('Fetched Interviews:', response.data);
       setInterviews(response.data);
       setLoading(false);
     } catch (err) {
@@ -138,14 +139,6 @@ export function InterviewList() {
                     : 'Not scheduled yet'}
                 </p>
               </div>
-              {/* {selectedInterview.assigned_to && (
-                <div className="flex items-center bg-green-100 p-3 rounded-lg">
-                  <CheckCircle className="h-5 w-5 text-green-700 mr-2" /> 
-                  <p className="text-green-700 font-medium">
-                    Assigned to: {selectedInterview.assigned_to}
-                  </p>
-                </div>
-              )} */}
             </div>
             <button
               className="mt-6 w-full bg-gradient-to-r from-indigo-500 to-blue-500 text-white px-4 py-2 rounded-lg hover:shadow-lg transition-all duration-300"
